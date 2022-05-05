@@ -1,0 +1,82 @@
+﻿@model ProjetPokemon.Web.Models.PokemonViewModel
+@{ ViewBag.Title = "Edit";
+    ViewBag.SousTitre = "Modifier le Pokémon"; }
+@section menuPage
+{
+    <a href="/Trainer/Index">Liste des trainers</a>
+    <a href="/Pokemon/Index">Liste des Pokemon</a>
+
+}
+<div>
+    <form action="/Pokemon/Edit" method="post">
+        <input name="Id" type="hidden" value=@Model.UnPokemon.Id>
+        <input name="Species" type="hidden" value=@Model.UnPokemon.Species>
+
+        <table>
+
+            <tr>
+                <td>
+                    <label>Espèce:</label>
+                </td>
+
+                <td>@Model.UnPokemon.Species</td>
+
+            </tr>
+            <tr>
+                <td>
+                    <label>Type de Pokémon:</label>
+                </td>
+                <td>
+                    <select name="ElementType">
+                        <option>Inconnu</option>
+                        <option>Bug</option>
+                        <option>Dark</option>
+                        <option>Dragon</option>
+                        <option>Electric</option>
+                        <option>Fairy</option>
+                        <option>Fight</option>
+                        <option>Fire</option>
+                        <option>Flying</option>
+                        <option>Ghost</option>
+                        <option>Grass</option>
+                        <option>Ice</option>
+                        <option>Normal</option>
+                        <option>Poison</option>
+                        <option>Psychic</option>
+                        <option>Rock</option>
+                        <option>Steel</option>
+                        <option>Water</option>
+                </td>
+            </tr>
+            <tr>
+                <td>Surnom:</td>
+                <td><input name="Nickname" type="text" value="@Model.UnPokemon.Nickname" placeholder="Facultatif"></td>
+            </tr>
+            <tr>
+                <td>Choisir un Trainer:</td>
+                <td>
+                    <select name="TrainerId">
+                        @foreach (var trainer in Model.GetTrainers)
+                        {
+                        <option value="@trainer.Id">@trainer.Nom</option>}
+                    </select>
+                </td>
+
+            </tr>
+
+            <tr>
+                <td colspan="2" style="text-align:center">
+                    <input type="submit" value="Editer">
+                </td>
+            </tr>
+        </table>
+    </form>
+    <div style="color:red">
+        @ViewBag.MessageErreurs
+    </div>
+</div>
+@section footerdeLaPage
+{
+    <div><a href="/Pokemon/Index">Annuler</a></div>
+   
+}

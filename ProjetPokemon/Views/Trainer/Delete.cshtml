@@ -1,0 +1,36 @@
+﻿@model ProjetPokemon.Data.Models.Trainer
+@{
+    ViewBag.Title = "Index";
+    ViewBag.SousTitre = "Confirmer la suppression";
+}
+@section menuPage
+{
+    <a href="/Trainer/Index">Liste des trainers</a>
+    <a href="/Pokemon/Index">Liste des Pokemon</a>
+
+}
+<div>
+    <table>
+        <thead>
+            <tr>
+                <th>Nom</th>
+                <th>Region</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td> @Model.Nom</td>
+                <td> @Model.Region</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <form action="/Trainer/Delete" method="post">
+        <input name="Id" type="hidden" value=@Model.Id>
+        <input type="submit" value="Confirmer">
+    </form>
+</div>
+@section footerdeLaPage
+{
+    <a href="/Trainer/Index">Annuler</a>
+}

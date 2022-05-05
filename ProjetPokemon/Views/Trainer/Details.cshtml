@@ -1,0 +1,44 @@
+﻿@model ProjetPokemon.Data.Models.Trainer
+@{
+    ViewBag.Title = "Index";
+    ViewBag.SousTitre = "Detail Trainer";
+}
+@section menuPage
+{
+    <a href="/Trainer/Index">Liste des trainers</a>
+    <a href="/Pokemon/Index">Liste des Pokemon</a>
+
+}
+<div>
+    <table>
+        <tr>
+            <th><label>Nom:</label></th>
+            <td> @Model.Nom</td>
+
+        </tr>
+        <tr>
+            <th><label>Region:</label></th>
+            <td> @Model.Region</td>
+        </tr>           
+    </table>
+    <hr />
+    <table>
+        <th><label>Mes Pokemons:</label></th>
+        <tr>
+            <th>Nom:</th>
+            <th> Espece:</th>
+        </tr>
+        @foreach (var trainer in Model.TrainerPokemons)
+        {
+            <tr>
+                <td>@trainer.Name</td>
+                <td>@trainer.Species</td>
+            </tr>
+        }
+
+    </table>
+</div>
+@section footerdeLaPage
+{
+   <div>Le Footer</div>
+}

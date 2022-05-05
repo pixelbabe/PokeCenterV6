@@ -1,0 +1,44 @@
+﻿@model ProjetPokemon.Web.Models.PokemonViewModel
+@{ ViewBag.Title = "Details";
+    ViewBag.SousTitre = "Détails du pokemon " + Model.UnPokemon.Name; }
+@section menuPage
+{
+    <a href="/Trainer/Index">Liste des trainers</a>
+    <a href="/Pokemon/Index">Liste des Pokemon</a>
+
+}
+<div>
+    <table>
+        <tr>
+            <th>Id</th>
+            <th>Espèce</th>
+            <th>Nom</th>
+            <th>Type</th>
+            <th>Trainer:</th>
+
+        </tr>
+
+        <tr>
+            <td>@Model.UnPokemon.Id</td>
+            <td>@Model.UnPokemon.Species</td>
+            <td>@Model.UnPokemon.Name</td>
+            <td>@Model.UnPokemon.ElementType</td>           
+            <td>@Model.UnTrainer.Nom</td>
+            
+           
+
+        </tr>
+
+    </table>
+
+    <div style="margin-top:20px">
+        <a href="/Pokemon/Edit/@Model.UnPokemon.Id">Modifier</a>
+    </div>
+</div>
+@section footerdeLaPage
+{
+    <div>
+        Le Footer
+    </div>
+
+}

@@ -1,0 +1,26 @@
+﻿@{
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+</head>
+<body>
+    <header><h1>Pokemon Academy</h1></header>
+    <p>Cree par Joshua(Pour le moment)</p>
+    <hr />
+    <div>
+        @RenderSection("menuPage", required: false)
+    </div>
+    <hr />
+    <h2>@ViewBag.SousTitre</h2>
+    <hr />
+    <div>
+        @RenderBody()
+    </div>
+    <hr />
+    <footer>@RenderSection("footerdeLaPage", required: true)</footer>
+</body>
+</html>
+

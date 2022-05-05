@@ -1,0 +1,44 @@
+﻿@model ProjetPokemon.Data.Models.Trainer
+@{
+    ViewBag.Title = "Index";
+    ViewBag.SousTitre = "Creation d'un Pokemon Trainer";
+}
+@section menuPage
+{
+    <a href="/Trainer/Index">Liste des trainers</a>
+    <a href="/Pokemon/Index">Liste des Pokemon</a>
+}
+<div>
+    <form action="/Trainer/Create" method="post">
+        <table>
+            <tr>
+                <td>Titre:</td>
+                <td><input name="Nom" type="text" value=@Model.Nom></td>
+            </tr>
+            <tr>
+                <td>
+                    <label>Regions:</label>
+                </td>
+                <td>
+                    <select name="Region">
+                        <option selected>Galar</option>
+                        <option>Kanto</option>
+                        <option>Alola</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" style="text-align:center">
+                    <input type="submit" value="Ajouter">
+                </td>
+            </tr>
+        </table>
+    </form>
+    <div style="color:red">
+        @ViewBag.MessageErreurs
+    </div>
+</div>
+@section footerdeLaPage
+{
+    <a href="/Trainer/Index">Annuler</a>
+}

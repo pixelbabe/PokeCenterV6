@@ -1,0 +1,92 @@
+﻿@model ProjetPokemon.Web.Models.PokemonViewModel
+@{ ViewBag.Title = "Create";
+                ViewBag.SousTitre = "Ajouter un Pokémon"; }
+@section menuPage
+{
+    <a href="/Trainer/Index">Liste des trainers</a>
+    <a href="/Pokemon/Index">Liste des Pokemon</a>
+
+}
+<div>
+    <form action="/Pokemon/Create" method="post">
+        <table>
+
+            <tr>
+                <td>
+                    <label>Espèce:</label>
+                </td>
+                <td>
+                    <select name="Species">
+                        <option>Bulbasaur</option>
+                        <option>Ivysaur</option>
+                        <option>Venusaur</option>
+                        <option>Charmander</option>
+                        <option>Carmeleon</option>
+                        <option>Charizard</option>
+                        <option>Squirtle</option>
+                        <option>Wartortle</option>
+                        <option>Blastoise</option>
+                        <option>Pikachu</option>
+                        <option>Raichu</option>
+                        <option>Eevee</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>Type de Pokémon:</label>
+                </td>
+                <td>
+                    <select name="ElementType">
+                        <option>Inconnu</option>
+                        <option>Bug</option>
+                        <option>Dark</option>
+                        <option>Dragon</option>
+                        <option>Electric</option>
+                        <option>Fairy</option>
+                        <option>Fight</option>
+                        <option>Fire</option>
+                        <option>Flying</option>
+                        <option>Ghost</option>
+                        <option>Grass</option>
+                        <option>Ice</option>
+                        <option>Normal</option>
+                        <option>Poison</option>
+                        <option>Psychic</option>
+                        <option>Rock</option>
+                        <option>Steel</option>
+                        <option>Water</option>
+                </td>
+            </tr>
+            <tr>
+                <td>Surnom:</td>
+                <td><input name="Nickname" type="text" value="" placeholder="Facultatif"></td>
+            </tr>
+
+            <tr>
+                <td>Nom Trainer</td>
+                <td><select name="TrainerId">                    
+                    @foreach (var trainer in Model.GetTrainers)
+                    {
+                <option value="@trainer.Id">@trainer.Nom</option>
+                }
+                </select>
+                </td>
+                
+            </tr>
+            <tr>
+                <td colspan="2" style="text-align:center">
+                    <input type="submit" value="Ajouter">
+                </td>
+            </tr>
+        </table>
+    </form>
+    <div style="color:red">
+        @ViewBag.MessageErreurs
+    </div>
+</div>
+@section footerdeLaPage
+{
+    <div><a href="/Pokemon/Index">Annuler</a></div>
+    
+}
