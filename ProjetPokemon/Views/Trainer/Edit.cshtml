@@ -3,12 +3,7 @@
     ViewBag.Title = "Index";
     ViewBag.SousTitre = $"Modification du Pokemon Trainer {Model.Nom}";
 }
-@section menuPage
-{
-    <a href="/Trainer/Index">Liste des trainers</a>
-    <a href="/Pokemon/Index">Liste des Pokemon</a>
 
-}
 <div>
     <form action="/Trainer/Edit" method="post">
         <input name="Id" type="hidden" value=@Model.Id>

@@ -1,12 +1,7 @@
 ﻿@model ProjetPokemon.Web.Models.PokemonViewModel
 @{ ViewBag.Title = "Create";
                 ViewBag.SousTitre = "Ajouter un Pokémon"; }
-@section menuPage
-{
-    <a href="/Trainer/Index">Liste des trainers</a>
-    <a href="/Pokemon/Index">Liste des Pokemon</a>
 
-}
 <div>
     <form action="/Pokemon/Create" method="post">
         <table>

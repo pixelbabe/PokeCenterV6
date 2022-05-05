@@ -1,21 +1,18 @@
 ﻿@model ProjetPokemon.Data.Models.Pokemon
 @{ ViewBag.Title = "Delete";
     ViewBag.SousTitre = "Confirmer la suppression de " + Model.Name; }
-@section menuPage
-{
-    <a href="/Trainer/Index">Liste des trainers</a>
-    <a href="/Pokemon/Index">Liste des Pokemon</a>
 
-}
 <div>
     <table>
         <thead>
             <tr>
-                <th>Nom</th>
+                <th>Trainer ID</th>
+                <th>Nom du pokemon</th>
             </tr>
         </thead>
         <tbody>
             <tr>
+                <td> @Model.TrainerId</td>
                 <td> @Model.Name</td>
             </tr>
         </tbody>

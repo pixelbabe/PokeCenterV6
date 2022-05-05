@@ -1,27 +1,22 @@
 ﻿@model ProjetPokemon.Web.Models.PokemonViewModel
 @{ ViewBag.Title = "Details";
     ViewBag.SousTitre = "Détails du pokemon " + Model.UnPokemon.Name; }
-@section menuPage
-{
-    <a href="/Trainer/Index">Liste des trainers</a>
-    <a href="/Pokemon/Index">Liste des Pokemon</a>
 
-}
 <div>
     <table>
         <tr>
+            <th>Trainer:</th>
             <th>Espèce</th>
             <th>Nom</th>
             <th>Type</th>
-            <th>Trainer:</th>
-
         </tr>
 
         <tr>
+            <td>@Model.UnTrainer.Nom</td>
             <td>@Model.UnPokemon.Species</td>
             <td>@Model.UnPokemon.Name</td>
-            <td>@Model.UnPokemon.ElementType</td>           
-            <td>@Model.UnTrainer.Nom</td>
+            <td>@Model.UnPokemon.ElementType</td>
+
         </tr>
 
     </table>
@@ -30,10 +25,3 @@
         <a href="/Pokemon/Edit/@Model.UnPokemon.Id">Modifier</a>
     </div>
 </div>
-@section footerdeLaPage
-{
-    <div>
-        Le Footer
-    </div>
-
-}

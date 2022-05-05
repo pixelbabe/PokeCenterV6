@@ -3,16 +3,12 @@
     ViewBag.Title = "Index";
     ViewBag.SousTitre = "Creation d'un Pokemon Trainer";
 }
-@section menuPage
-{
-    <a href="/Trainer/Index">Liste des trainers</a>
-    <a href="/Pokemon/Index">Liste des Pokemon</a>
-}
+
 <div>
     <form action="/Trainer/Create" method="post">
         <table>
             <tr>
-                <td>Titre:</td>
+                <td>Nom:</td>
                 <td><input name="Nom" type="text" value=@Model.Nom></td>
             </tr>
             <tr>
