@@ -33,7 +33,6 @@ namespace ProjetPokemon.Web.Controllers
             var vm = new PokemonViewModel
             {
                 GetTrainers = sourceSQL.GetAll()
-
             };
             return View(vm);
         }

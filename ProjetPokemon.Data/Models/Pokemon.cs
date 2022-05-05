@@ -61,7 +61,7 @@ namespace ProjetPokemon.Data.Models
         [Required(ErrorMessage = "Un Trainer doit être associé à un Pokémon")]
         public int TrainerId { get; set; }
         
-        public Trainer? Trainer { get; set; }
+        public Trainer Trainer { get; set; }
 
         public bool Equals(Pokemon other)
         {

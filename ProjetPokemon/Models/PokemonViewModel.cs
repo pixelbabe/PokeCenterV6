@@ -15,6 +15,36 @@ namespace ProjetPokemon.Web.Models
         public IEnumerable<Trainer> GetTrainers;
         public Trainer UnTrainer { get; set; }
 
+        public List<string> Species
+        {
+            get
+            {
+                var s = new List<string>();
+                foreach (var element in Enum.GetNames(typeof(Species)))
+                {
+                    s.Add(element);
 
-    }
+                }
+                return s;
+            }
+        }
+
+        public List<string> ElementTypes
+        {
+            get
+            {
+                var t = new List<string>();
+                foreach (var element in Enum.GetNames(typeof(ElementType)))
+                {
+                    t.Add(element);
+
+                }
+                return t;
+            }
+        }
+
+        
+
+
+}
 }

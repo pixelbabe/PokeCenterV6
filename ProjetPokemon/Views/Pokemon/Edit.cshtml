@@ -28,24 +28,21 @@
                 </td>
                 <td>
                     <select name="ElementType">
-                        <option>Inconnu</option>
-                        <option>Bug</option>
-                        <option>Dark</option>
-                        <option>Dragon</option>
-                        <option>Electric</option>
-                        <option>Fairy</option>
-                        <option>Fight</option>
-                        <option>Fire</option>
-                        <option>Flying</option>
-                        <option>Ghost</option>
-                        <option>Grass</option>
-                        <option>Ice</option>
-                        <option>Normal</option>
-                        <option>Poison</option>
-                        <option>Psychic</option>
-                        <option>Rock</option>
-                        <option>Steel</option>
-                        <option>Water</option>
+                        @{ 
+                            foreach (var element in Model.ElementTypes)
+                            {
+
+                                <option 
+                                        @if (@Model.UnPokemon.ElementType.ToString().Equals(element)) 
+                                        { 
+                                            @: selected="selected"
+                                        }
+                                >
+                                @element
+                                </option> 
+                            } 
+                        }
+                    </select>
                 </td>
             </tr>
             <tr>
@@ -58,7 +55,14 @@
                     <select name="TrainerId">
                         @foreach (var trainer in Model.GetTrainers)
                         {
-                        <option value="@trainer.Id">@trainer.Nom</option>}
+                        <option value="@trainer.Id"
+                                  @if (@Model.UnPokemon.TrainerId.Equals(trainer.Id)) 
+                                    { 
+                                        @: selected="selected"
+                                    }
+                                
+                        >@trainer.Nom</option>
+                        }
                     </select>
                 </td>
 

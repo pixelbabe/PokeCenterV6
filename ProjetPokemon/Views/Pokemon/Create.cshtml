@@ -17,18 +17,12 @@
                 </td>
                 <td>
                     <select name="Species">
-                        <option>Bulbasaur</option>
-                        <option>Ivysaur</option>
-                        <option>Venusaur</option>
-                        <option>Charmander</option>
-                        <option>Carmeleon</option>
-                        <option>Charizard</option>
-                        <option>Squirtle</option>
-                        <option>Wartortle</option>
-                        <option>Blastoise</option>
-                        <option>Pikachu</option>
-                        <option>Raichu</option>
-                        <option>Eevee</option>
+                        @{ 
+                            foreach (var element in Model.Species)
+                            {
+                                <option>@element</option> 
+                            } 
+                        }
                     </select>
                 </td>
             </tr>
@@ -37,25 +31,15 @@
                     <label>Type de Pokémon:</label>
                 </td>
                 <td>
+
                     <select name="ElementType">
-                        <option>Inconnu</option>
-                        <option>Bug</option>
-                        <option>Dark</option>
-                        <option>Dragon</option>
-                        <option>Electric</option>
-                        <option>Fairy</option>
-                        <option>Fight</option>
-                        <option>Fire</option>
-                        <option>Flying</option>
-                        <option>Ghost</option>
-                        <option>Grass</option>
-                        <option>Ice</option>
-                        <option>Normal</option>
-                        <option>Poison</option>
-                        <option>Psychic</option>
-                        <option>Rock</option>
-                        <option>Steel</option>
-                        <option>Water</option>
+                        @{ 
+                            foreach (var element in Model.ElementTypes)
+                            {
+                                <option>@element</option>
+                            }
+                        }
+                    </select>
                 </td>
             </tr>
             <tr>
