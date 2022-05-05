@@ -36,7 +36,7 @@ namespace ProjetPokemon.Web
             {
                 endpoints.MapControllerRoute(
                        name: "default",
-                       pattern: "{controller=Trainer}/{action=Index}/{id?}");
+                       pattern: "{controller=Home}/{action=Index}/{id?}");
             });
         }
     }

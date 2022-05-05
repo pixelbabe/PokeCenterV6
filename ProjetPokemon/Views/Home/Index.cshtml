@@ -1,0 +1,30 @@
+﻿@model ProjetPokemon.Web.Models.BienvenueViewModel
+@{ ViewBag.Title = "Index Home";
+    ViewBag.SousTitre = "Home"; }
+
+@section menuPage
+{
+    <a href="/Trainer/Index">Liste des trainers</a>
+    <a href="/Pokemon/Index">Liste des Pokemon</a>
+
+}
+
+<div>
+    <h4>@(Model.Message) @(Model.Nom)!</h4>
+    <p>Il y a:</p>
+    <ul>
+        <!-- <li>@(Model.PokecenterTotal) PokéCenter(s)</li> -->
+        <li>@(Model.TrainerTotal) Trainer(s)</li>
+        <li>@(Model.PokemonTotal) Pokémon(s)</li>
+
+    </ul>
+    <p>dans notre source de données.</p>
+    
+     
+</div>
+
+@section footerdeLaPage
+{
+    <div>Fait par Joshua Pierre, Mathieu Himo et Chha Saviet</div>
+
+}

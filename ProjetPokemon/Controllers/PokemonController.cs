@@ -14,11 +14,7 @@ namespace ProjetPokemon.Web.Controllers
 
     public class PokemonController : Controller
     {
-
-        //private readonly ISourceDonneesPokemon source = Startup.SourceDonnees;
-
         const string connexionString = "Server=(localdb)\\mssqllocaldb;Database=PokemonDB;Trusted_Connection=true;";
-        //private readonly TrainerDBContext db = new TrainerDBContext(connexionString);
         private readonly TrainerDBContext db = new TrainerDBContext(connexionString);
 
         public IActionResult Index()
@@ -30,9 +26,10 @@ namespace ProjetPokemon.Web.Controllers
 
         public IActionResult Create()
         {
-            //ISourceDonneesPokemon sourceSQL = new DonneesPokemonSQL(db);
+            
             ISourceDonneesTrainer sourceSQL = new DonneesTrainerSQL(db);
             db.Database.EnsureCreated();
+
             var vm = new PokemonViewModel
             {
                 GetTrainers = sourceSQL.GetAll()
@@ -135,10 +132,6 @@ namespace ProjetPokemon.Web.Controllers
 
             else
             {
-              
-                    //p.Nickname = pokemon.Nickname;
-                    //p.ElementType = pokemon.ElementType;
-
                     sourceSQL.Update(pokemon);
 
                     return RedirectToAction("Details", p);
@@ -186,41 +179,5 @@ namespace ProjetPokemon.Web.Controllers
                 return View("PasTrouve", id);
         }
 
-        /*private void populateElementTypeDropdown()
-        {
-            var elementTypeEnumData = from ElementType e in Enum.GetValues(typeof(ElementType))
-                                      select new
-                                      {
-                                          ID = (int)e,
-                                          Name = e.ToString()
-                                      };
-            ViewBag.elementTypeEnumData = new SelectList(elementTypeEnumData, "ID", "Name");
-        }
-
-        private void populateSpeciesDropdown()
-        {
-            //https://www.c-sharpcorner.com/UploadFile/f1047f/bind-enum-to-dropdownlist-in-Asp-Net-mvc/
-            var speciesEnumData = from Species s in Enum.GetValues(typeof(Species))
-                                  select new
-                                  {
-                                      ID = (int)s,
-                                      Name = s.ToString()
-                                  };
-
-            ViewBag.speciesEnumData = new SelectList(speciesEnumData, "ID", "Name");
-        }*/
-        /*private int getNextId()
-        {
-            int maxId = 0;
-            foreach (var f in source.GetAll())
-            {
-                if (f.Id > maxId)
-                {
-                    maxId = f.Id;
-                }
-            }
-
-            return maxId + 1;
-        }*/
     }
 }

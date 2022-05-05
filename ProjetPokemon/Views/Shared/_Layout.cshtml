@@ -1,17 +1,14 @@
-﻿@{
-}
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title</title>
 </head>
 <body>
-    <header><h1>Pokemon Academy</h1></header>
-    <p>Cree par Joshua(Pour le moment)</p>
+    <header><h1>Projet - PokéCenter</h1></header>
     <hr />
     <div>
-        @RenderSection("menuPage", required: false)
+        @RenderSection("menuPage", required: true)
     </div>
     <hr />
     <h2>@ViewBag.SousTitre</h2>
@@ -20,7 +17,7 @@
         @RenderBody()
     </div>
     <hr />
-    <footer>@RenderSection("footerdeLaPage", required: true)</footer>
+    <footer>@RenderSection("footerdeLaPage", required: false)</footer>
 </body>
 </html>
 
