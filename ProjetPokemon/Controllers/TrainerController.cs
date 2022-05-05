@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using ProjetPokemon.Data.Data;
+using ProjetPokemon.Web.Models;
 
 namespace ProjetPokemon.Web.Controllers
 {
@@ -34,8 +35,12 @@ namespace ProjetPokemon.Web.Controllers
 
         public IActionResult Create()
         {
-
-            return View(new Trainer(-1, "Nothing", Regions.Kanto));
+            var vm = new TrainerViewModel
+            {
+                Trainer = new Trainer(-1, "Nothing", Regions.Kanto)
+            };
+            return View(vm);
+            //return View(new Trainer(-1, "Nothing", Regions.Kanto));
         }
 
         [HttpPost]
@@ -108,7 +113,14 @@ namespace ProjetPokemon.Web.Controllers
             {
                 return View("PasTrouve", id);
             }
-            return View(trainerTrouvé);
+
+            var vm = new TrainerViewModel
+            {
+                Trainer = trainerTrouvé
+            };
+            return View(vm);
+
+            //return View(trainerTrouvé);
         }
 
         [HttpPost]

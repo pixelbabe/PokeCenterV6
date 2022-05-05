@@ -1,4 +1,4 @@
-﻿@model ProjetPokemon.Data.Models.Trainer
+﻿@model ProjetPokemon.Web.Models.TrainerViewModel
 @{
     ViewBag.Title = "Index";
     ViewBag.SousTitre = "Creation d'un Pokemon Trainer";
@@ -9,7 +9,7 @@
         <table>
             <tr>
                 <td>Nom:</td>
-                <td><input name="Nom" type="text" value=@Model.Nom></td>
+                <td><input name="Nom" type="text" value=@Model.Trainer.Nom></td>
             </tr>
             <tr>
                 <td>
@@ -17,10 +17,13 @@
                 </td>
                 <td>
                     <select name="Region">
-                        <option selected>Galar</option>
-                        <option>Kanto</option>
-                        <option>Alola</option>
+                        @{ foreach (var element in Model.Regions)
+                            {
+                                <option>@element</option>
+                            } 
+                        }
                     </select>
+                    
                 </td>
             </tr>
             <tr>

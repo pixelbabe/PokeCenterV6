@@ -14,8 +14,13 @@
         <tr>
             <th><label>Region:</label></th>
             <td> @Model.Region</td>
-        </tr>           
+        </tr>
     </table>
+
+    <div style="margin-top:20px">
+        <a href="/Trainer/Edit/@Model.Id">Modifier</a>
+    </div>
+
     <hr />
 
     <table>
@@ -36,8 +41,5 @@
         }
 
     </table>
+
 </div>
-@section footerdeLaPage
-{
-   <div>Le Footer</div>
-}
